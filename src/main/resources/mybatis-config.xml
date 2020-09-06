@@ -28,6 +28,10 @@
         </environment>
     </environments>
     <mappers>
+        <!--xml文件扫描路径配置-->
         <mapper resource="com/wayzim/mapper/UserMapper.xml"/>
+        <!--mapper接口文件扫描路径配置-->
+        <package name="com.wayzim.mapper.*"></package>
+        <!--https://www.cnblogs.com/javabg/p/7999756.html-->
     </mappers>
 </configuration>
