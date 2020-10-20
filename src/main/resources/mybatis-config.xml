@@ -17,6 +17,10 @@
         <typeHandler handler="com.wayzim.typehandler.GenderEnumHandler"></typeHandler>
     </typeHandlers>
 
+    <plugins>
+        <plugin interceptor="com.wayzim.interceptor.MySqlInterceptor"></plugin>
+    </plugins>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
