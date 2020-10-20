@@ -6,7 +6,16 @@
 <mapper namespace="com.wayzim.mapper.UserMapper">
 
 
+    <resultMap id="userMapper" type="user">
+        <result property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="sex" column="sex"
+                typeHandler="com.wayzim.typehandler.GenderEnumHandler"
+        />
+    </resultMap>
     <select id="selectAll" resultType="User" >select * from t_user</select>
+
+    <select id="selectById" resultMap="userMapper" parameterType="string">select * from t_user where id = #{id}</select>
 
 </mapper>
 

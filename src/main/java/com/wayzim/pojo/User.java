@@ -1,5 +1,6 @@
 package com.wayzim.pojo;
 
+import com.wayzim.typehandler.GenderEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,5 +19,10 @@ public class User implements Serializable {
      * 账号
      */
     private String username;
+
+    /**
+     * 性别
+     */
+    private GenderEnum sex;
 
 }

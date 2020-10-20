@@ -3,7 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
     <!-- 自定义别名 -->
     <typeAliases>
         <!-- 单个别名定义 -->
@@ -13,6 +12,10 @@
         <!-- package：指定包名称来为该包下的po类声明别名，默认的别名就是类名（首字母大小写都可） -->
         <package name="com.wayzim.pojo"/>
     </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.wayzim.typehandler.GenderEnumHandler"></typeHandler>
+    </typeHandlers>
 
     <environments default="development">
         <environment id="development">
@@ -27,6 +30,7 @@
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
         <!--xml文件扫描路径配置-->
         <mapper resource="com/wayzim/mapper/UserMapper.xml"/>

@@ -1,3 +1,4 @@
+import com.wayzim.mapper.UserMapper;
 import com.wayzim.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -34,10 +35,31 @@ public class MybaitisTest {
 
         MyResultHandler myResultHandler = new MyResultHandler();
         sqlSession.select("com.wayzim.mapper.UserMapper.selectAll", myResultHandler);
-
         //关闭资源
         sqlSession.close();
     }
+
+
+    @Test
+    public void findById() throws Exception {
+        //读取配置文件   全局配置文件的路径
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        //创建SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        //创建SqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        System.out.println("===========typeHandler======");
+        User user = mapper.selectById("253772566311735297");
+        System.out.println(user);
+        //关闭资源
+        sqlSession.close();
+    }
+
+
+
 
 
 }
