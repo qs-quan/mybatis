@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.Test;
+import resulthandler.MyResultHandler;
 
 import java.io.InputStream;
 import java.util.List;
@@ -31,10 +32,12 @@ public class MybaitisTest {
         List<User> users = sqlSession.selectList("com.wayzim.mapper.UserMapper.selectAll");
         System.out.println(users);
 
+        MyResultHandler myResultHandler = new MyResultHandler();
+        sqlSession.select("com.wayzim.mapper.UserMapper.selectAll", myResultHandler);
+
         //关闭资源
         sqlSession.close();
     }
-
 
 
 }

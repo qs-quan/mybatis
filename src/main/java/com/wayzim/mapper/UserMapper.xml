@@ -6,5 +6,7 @@
 <mapper namespace="com.wayzim.mapper.UserMapper">
 
 
+    <select id="selectAll" resultType="User" >select * from t_user</select>
+
 </mapper>
 
