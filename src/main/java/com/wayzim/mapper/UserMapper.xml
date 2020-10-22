@@ -17,5 +17,7 @@
 
     <select id="selectById" resultMap="userMapper" parameterType="string">select * from t_user where id = #{id}</select>
 
+    <update id="updateById">update t_user set username=#{username} where id = #{id}</update>
+
 </mapper>
 
